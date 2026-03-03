@@ -1,28 +1,38 @@
+import java.util.*;
 public class Main {
     public static void main(String[] args) {
 
-        String original = "madam";
+
+        String original = "level";
 
 
         Stack<Character> stack = new Stack<>();
+        Queue<Character> queue = new LinkedList<>();
 
 
         for (int i = 0; i < original.length(); i++) {
-            stack.push(original.charAt(i));
+            char ch = original.charAt(i);
+            stack.push(ch);
+            queue.add(ch);
         }
 
+        boolean isPalindrome = true;
 
-        String reversed = "";
+
         while (!stack.isEmpty()) {
-            reversed = reversed + stack.pop();
+            if (stack.pop() != queue.remove()) {
+                isPalindrome = false;
+                break;
+            }
         }
 
 
-        if (original.equals(reversed)) {
+        if (isPalindrome) {
             System.out.println(original + " is a Palindrome.");
         } else {
             System.out.println(original + " is NOT a Palindrome.");
         }
     }
+
 
 }
