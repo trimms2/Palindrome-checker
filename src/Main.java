@@ -1,32 +1,31 @@
 public class Main {
     public static void main(String[] args) {
 
-        String original = "radar";
+        String original = "madam";
 
+
+        Stack<Character> stack = new Stack<>();
 
 
         String reversed = "";
 
 
-        char[] characters = original.toCharArray();
+       char[] characters = original.toCharArray();
 
 
-        int start = 0;
-        int end = characters.length - 1;
 
-        boolean isPalindrome = true;
-
-        while (start < end) {
-            if (characters[start] != characters[end]) {
-                isPalindrome = false;
-                break;
-            }
-            start++;
-            end--;
+        for (int i = 0; i < original.length(); i++) {
+            stack.push(original.charAt(i));
         }
 
 
-        if (isPalindrome) {
+        String reversed = "";
+        while (!stack.isEmpty()) {
+            reversed = reversed + stack.pop();
+        }
+
+
+        if (original.equals(reversed)) {
             System.out.println(original + " is a Palindrome.");
         } else {
             System.out.println(original + " is NOT a Palindrome.");
