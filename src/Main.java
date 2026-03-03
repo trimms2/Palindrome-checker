@@ -1,12 +1,20 @@
 import java.util.*;
-public class Main {
-    public static void main(String[] args) {
+public static void main(String[] args) {
 
-        String original = "radar";
+    String original = "A man a plan a canal Panama";
+
+    String normalized = original.replaceAll("\\s+", "").toLowerCase();
+
+    int start = 0;
+    int end = normalized.length() - 1;
+
+    boolean isPalindrome = true;
 
 
-        Deque<Character> deque = new ArrayDeque<>();
-
+    while (start < end) {
+        if (normalized.charAt(start) != normalized.charAt(end)) {
+            isPalindrome = false;
+            break;
 
         String reversed = "";
 
@@ -17,20 +25,20 @@ public class Main {
 
         for (int i = 0; i < original.length(); i++) {
             deque.addLast(original.charAt(i));
+
         }
+        start++;
+        end--;
+    }
 
-        boolean isPalindrome = true;
+    if (isPalindrome) {
+        System.out.println(original + " is a Palindrome.");
+    } else {
+        System.out.println(original + " is NOT a Palindrome.");
+    }
+}
 
 
-        while (deque.size() > 1) {
-            char front = deque.removeFirst();
-            char rear = deque.removeLast();
-
-            if (front != rear) {
-                isPalindrome = false;
-                break;
-            }
-        }
 
 
         if (isPalindrome) {
@@ -72,6 +80,7 @@ public class Main {
 
 
     }
+
 
 
 }
