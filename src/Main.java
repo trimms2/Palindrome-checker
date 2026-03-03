@@ -1,6 +1,21 @@
 public class Main {
     public static void main(String[] args) {
+        String word = "madam";
 
+
+
+        String reversed = "";
+
+        for (int i = word.length() - 1; i >= 0; i--) {
+            reversed = reversed + word.charAt(i);
+        }
+
+
+        if (word.equals(reversed)) {
+            System.out.println(word + " is a Palindrome.");
+        } else {
+            System.out.println(word + " is NOT a Palindrome.");
+        }
 
 
         String input="madam";
@@ -32,6 +47,7 @@ public class Main {
 
         System.out.println("Input Text: " + input);
         System.out.println("Is it Palindrome: " + isPalindrome);
+
 
     }
 
